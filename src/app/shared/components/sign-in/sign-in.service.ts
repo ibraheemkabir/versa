@@ -27,4 +27,18 @@ export class SignInService {
                 });
         });
     }
+
+    sininWithYahoo() {
+        const provider = new auth.OAuthProvider('yahoo.com');
+
+        return new Promise((resolve, reject) => {
+            this.afAuth.auth.signInWithPopup(provider)
+                .then((authData) => {
+                    resolve(authData);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    }
 }

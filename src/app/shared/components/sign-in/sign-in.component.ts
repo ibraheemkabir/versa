@@ -90,8 +90,15 @@ export class SignInComponent implements OnInit {
 
 
     yahooSignin() {
-        const urll = this.socialLoginService.getSocialUrlLogin('yahoo');
-        window.location.href = urll;
+        // const urll = this.socialLoginService.getSocialUrlLogin('yahoo');
+        // window.location.href = urll;
+        this.signInService.sininWithYahoo()
+            .then((authData) => {
+                console.log(authData);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     linkedinSignin() {
