@@ -7,8 +7,8 @@ import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader
 import { SocialLogin } from '../../services/social-login-services';
 import { ToastrService } from 'ngx-toastr';
 
-let linkedinUrl = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77pv3mo63oyixv&redirect_uri=http://127.0.0.1:4200&state=fooobar&scope=r_liteprofile%20r_emailaddress%20w_member_social';
-let yahooUrl = 'https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9Y0lNZ2pVNTRTSzhGJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWY2&redirect_uri=http://versa-ims.herokuapp.com&response_type=code&language=en-us';
+const linkedinUrl = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77pv3mo63oyixv&redirect_uri=http://127.0.0.1:4200&state=fooobar&scope=r_liteprofile%20r_emailaddress%20w_member_social';
+const yahooUrl = 'https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9Y0lNZ2pVNTRTSzhGJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWY2&redirect_uri=http://versa-ims.herokuapp.com&response_type=code&language=en-us';
 
 
 @Component({
@@ -60,7 +60,7 @@ export class SignInComponent implements OnInit {
             this.authService.validateOTP(this.otp, this.user)
                 .subscribe(UserDetails => {
                     if (UserDetails) {
-                        console.log("got here")
+                        console.log('got here');
                         this.showOTPForm = true;
                         this.user = UserDetails;
                         this.toastrService.success(`Welcome ${this.user.first_name}`);
@@ -120,7 +120,7 @@ export class SignInComponent implements OnInit {
     // }
 
     installScript() {
-        this.dynamicScriptLoader.load('platform')
+        this.dynamicScriptLoader.load('platform');
     }
 
 
