@@ -175,7 +175,7 @@
         }
     }
 
-    /*&.scrolled {
+    &.scrolled {
         position: fixed;
         background: $theme-white;
         @include transition(ease, 0.26s);
@@ -338,7 +338,7 @@
                 vertical-align: text-bottom;
             }
         }
-    }*/
+    }
 }
 
 .tran {
