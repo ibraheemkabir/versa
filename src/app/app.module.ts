@@ -9,7 +9,7 @@ import { CareerModule } from './modules/career/career.module';
 import { AppRoutingModule } from './app-routing.module';
 // import { Angular2SocialLoginModule } from "angular2-social-login";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ToastrModule } from 'ngx-toastr';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -38,6 +38,7 @@ import { DynamicScriptLoaderService } from './shared/services/dynamic-script-loa
 import { SocialLogin } from './shared/services/social-login-services';
 import { HowitworksComponent } from './pages/howitworks/howitworks.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { ContactusComponent } from './pages/contactus/faq.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -75,6 +76,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
         TableComponent,
         HowitworksComponent,
         FaqComponent,
+        ContactusComponent,
         // ChatComponent,
         // ApplicantDetailsComponent
 
@@ -91,6 +93,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
         CareerModule,
         AppRoutingModule,
         HttpClientModule,
+        NgxSkeletonLoaderModule,
         BrowserAnimationsModule, // required animations module
         ToastrModule.forRoot({
             timeOut: 5000,

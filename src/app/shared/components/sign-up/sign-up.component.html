@@ -9,61 +9,80 @@
             <div class="col-md-7">
                 <div class="outerContainer animated wow fadeIn" data-wow-delay=".5s" data-wow-duration="3s">
                     <div class="login-form" *ngIf="!showOTPForm">
-                        <img src="../../../../assets/images/logblack-edit.png" style="width: 140px" alt="">
-                        <h3>Sign up for an account, </h3>
-                        <p>You'll be done in a moment</p>
+                        <a routerLink="/" routerLinkActive="active">
+                            <img src="../../../../assets/images/logblack-edit.png" style="width: 140px" alt="">
+                        </a>
+                        <h3>Sign up to create an account, </h3>
                         <form (ngSubmit)="signUp()" #signUpForm="ngForm">
                             <div class="form-group">
-                                <label for="firstname" class="sr-only">First Name</label>
-                                <input type="text" required [(ngModel)]="user.first_name" placeholder="First Name"
-                                       name="firstname" class="form-control" id="firstname">
+                                <div class="input-group">
+                                    <label for="firstname" class="sr-only" style="color: #8492e6">First Name</label>
+                                    <input type="text" required [(ngModel)]="user.first_name" placeholder="First Name"
+                                        name="firstname" class="form-control" id="firstname">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text tran"><i class="fa fa-user"></i></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="lastname" class="sr-only">Last Name</label>
-                                <input type="text" required [(ngModel)]="user.last_name" placeholder="Last Name"
-                                       name="lastname" class="form-control" id="lastname">
+                                <div class="input-group">
+                                    <label for="lastname" class="sr-only" style="color: #8492e6">Last Name</label>
+                                    <input type="text" required [(ngModel)]="user.last_name" placeholder="Last Name"
+                                        name="lastname" class="form-control" id="lastname">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text tran"><i class="fa fa-user"></i></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="useremail" class="sr-only">Email Address</label>
-                                <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required
-                                       [(ngModel)]="user.email" placeholder="E-mail" name="useremail"
-                                       class="form-control"
-                                       id="useremail">
+                                <div class="input-group">
+                                    <label for="useremail" class="sr-only" style="color: #8492e6">Email Address</label>
+                                    <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required
+                                        [(ngModel)]="user.email" placeholder="E-mail" name="useremail"
+                                        class="form-control" id="useremail">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text tran">@</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="userpass" class="sr-only">Password</label>
-                                    <input type="password" required [(ngModel)]="user.password"
-                                           placeholder="Enter Password"
-                                           name="password" class="form-control remBorder" id="userpass">
+                                    <input #passText type="password" required [(ngModel)]="user.password"
+                                        placeholder="Enter Password" name="password" class="form-control remBorder"
+                                        id="userpass">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text tran"><i class="fa fa-eye"></i></span>
+                                        <span class="input-group-text tran" (click)="view('input')"><i
+                                                class="fa fa-eye"></i></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="confuserpass" class="sr-only">Confirm Password</label>
-                                    <input type="password" required placeholder="Confirm Password"
-                                           [(ngModel)]="passwordConfim" name="confirm-password"
-                                           class="form-control remBorder" id="confuserpass">
+                                    <input #confirmPassText type="password" required placeholder="Confirm Password"
+                                        [(ngModel)]="passwordConfim" name="confirm-password"
+                                        class="form-control remBorder" id="confuserpass">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text tran"><i class="fa fa-eye"></i></span>
+                                        <span class="input-group-text tran" (click)="view('input2')"><i
+                                                class=" fa fa-eye"></i></span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn2 btn btn-raised btn-login"
-                                        [disabled]="!signUpForm.form.valid"
-                                        [promiseBtn]="isSubmitting">{{signUpText}}</button>
+                                    [disabled]="!signUpForm.form.valid"
+                                    [promiseBtn]="isSubmitting">{{signUpText}}</button>
                             </div>
                         </form>
                         <div class="otherInfo">
-                            <p>Already have an account?<a style="text-decoration: none;" routerLink="/signin" routerLinkActive="active"> Login</a></p>
+                            <p>Already have an account?<a style="text-decoration: none;" routerLink="/signin"
+                                    routerLinkActive="active"> Login</a></p>
                         </div>
                         <div class="otherInfo" style="padding-top: 0;">
-                            <p><i class="fa fa-arrow-alt-circle-left"></i> &nbsp;<a routerLink="/" routerLinkActive="active">Back Home</a></p>
+                            <p><i class="fa fa-arrow-alt-circle-left"></i> &nbsp;<a routerLink="/"
+                                    routerLinkActive="active">Back Home</a></p>
                         </div>
                     </div>
                     <div class="login-form otp-form" *ngIf="showOTPForm">
@@ -74,11 +93,11 @@
                             <div class="form-group">
                                 <label for="otp" class="sr-only">Enter your One Time Password</label>
                                 <input type="number" required [(ngModel)]="otp" name="otp" placeholder="OTP"
-                                       class="form-control" id="otp">
+                                    class="form-control" id="otp">
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn2 btn-login" [disabled]="!otpForm.form.valid"
-                                       [promiseBtn]="isSubmitting" [value]="loginText">
+                                    [promiseBtn]="isSubmitting" [value]="loginText">
                             </div>
                         </form>
                     </div>
